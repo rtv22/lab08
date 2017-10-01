@@ -79,8 +79,8 @@ EOF
 ```
 
 ```ShellSession
-$ cmake -H. -B_build
-$ cmake --build _build
+$ cmake -H. -B_build - Cборка проекта
+$ cmake --build _build - Создание двоичной директории проекта
 ```
 
 ```ShellSession
@@ -101,9 +101,9 @@ EOF
 
 ```ShellSession
 $ cmake --build _build
-$ cmake --build _build --target print
-$ cmake --build _build --target example1
-$ cmake --build _build --target example2
+$ cmake --build _build --target print       |
+$ cmake --build _build --target example1    |  - Сборка данных target файлов ("print" "example1" "example2")
+$ cmake --build _build --target example2    |
 ```
 
 ```ShellSession
@@ -123,15 +123,15 @@ $ rm -rf tmp
 
 ```ShellSession
 $ cat CMakeLists.txt
-$ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
-$ cmake --build _build --target install
-$ tree _install
+$ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install  |
+$ cmake --build _build --target install               | - Установка директории по умолчанию
+$ tree _install                                       
 ```
 
 ```ShellSession
-$ git add CMakeLists.txt
-$ git commit -m"added CMakeLists.txt"
-$ git push origin master
+$ git add CMakeLists.txt               
+$ git commit -m"added CMakeLists.txt"   
+$ git push origin master                
 ```
 
 ## Report
