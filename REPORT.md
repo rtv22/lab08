@@ -54,27 +54,27 @@ $ rm -rf log.txt
 
 ```ShellSession
 $ cat > CMakeLists.txt <<EOF
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0) - Задание минимальной требебуемой версии
 project(print)
 EOF
 ```
 
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 11) - Задание 11 стандарта C++
+set(CMAKE_CXX_STANDARD_REQUIRED ON) - Задание требований для выбранного стандарта
 EOF
 ```
 
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
-add_library(print STATIC \${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
+add_library(print STATIC \${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp) - Добавление объетка библиотеки, созданного из исходного файла "print.cpp"
 EOF
 ```
 
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
-include_directories(\${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(\${CMAKE_CURRENT_SOURCE_DIR}/include) - Добавление файлов из папки include в сборку
 EOF
 ```
 
@@ -86,16 +86,16 @@ $ cmake --build _build - Создание двоичной директории 
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 
-add_executable(example1 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example1.cpp)
-add_executable(example2 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example2.cpp)
+add_executable(example1 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example1.cpp) |
+add_executable(example2 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example2.cpp) | - Добавление исполняеиого файла "example1" и "example2"
 EOF
 ```
 
 ```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 
-target_link_libraries(example1 print)
-target_link_libraries(example2 print)
+target_link_libraries(example1 print) | 
+target_link_libraries(example2 print) | - Опрделение библиотек для связывания target и зависимых файлов
 EOF
 ```
 
