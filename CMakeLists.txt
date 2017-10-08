@@ -6,6 +6,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(BUILD_EXAMPLES "Build examples" OFF)
 
 project(print)
+set(PRINT_VERSION_MAJOR 0)
+set(PRINT_VERSION_PATCH 0)
+set(PRINT_VERSION_TWEAK 0)
+set(PRINT_VERSION 
+${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})
+set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
 
 add_library(print STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
 
@@ -41,3 +47,4 @@ add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
 target_link_libraries(check ${PROJECT_NAME} ${DEPENDS_LIBRARIES})
 add_test(NAME check COMMAND check "-s" "-r" "compact" "--use-colour" "yes")
 endif()
+include(CPackConfig.cmake)
